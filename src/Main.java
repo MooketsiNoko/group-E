@@ -4,8 +4,8 @@ public class Main {
         System.out.println("========== ORDER DEMO ==========\n");
 
         Order order = new Order("ORD-1001");
-        order.addObserver(new EmailNotifier());
-        order.addObserver(new SMSNotifier());
+        order.addObserver(NotifierFactory.create("EMAIL"));
+        order.addObserver(NotifierFactory.create("SMS"));
 
         System.out.println("-- Happy path: ORD-1001 --");
         UpdateController controller = new UpdateController();
@@ -13,8 +13,8 @@ public class Main {
 
         System.out.println("\n-- Invalid transitions: ORD-1002 --");
         Order orderTwo = new Order("ORD-1002");
-        orderTwo.addObserver(new EmailNotifier());
-        orderTwo.addObserver(new SMSNotifier());
+        orderTwo.addObserver(NotifierFactory.create("EMAIL"));
+        orderTwo.addObserver(NotifierFactory.create("SMS"));
 
         System.out.println("Attempting to ship before allocating...");
         orderTwo.ship();          // blocked: must allocate first
