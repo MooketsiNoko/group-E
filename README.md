@@ -1,6 +1,6 @@
 # Omnichannel Order Processing System — Prototype
 
-CS3203 Summer 2026 — Group E
+CS4213 Summer 2026 — Group E
 
 ## What this is
 
